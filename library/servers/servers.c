@@ -51,6 +51,10 @@ int file_read(int file_ino, int offset, char* block) {
 
 int setprio( int pid, int priority )
 {
-  /* Student's code goes here to send a request to set a processes priority */
-  /* and read and return the status */
+
+}
+
+int settickets(int tickets )
+{
+    // set the number of tickets for the calling process
 }

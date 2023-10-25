@@ -8,6 +8,8 @@ int dir_lookup(int dir_ino, char* name);
 int file_read(int file_ino, int offset, char* block);
 int setprio( int pid, int priority );
 
+int settickets( int num_tickets );
+
 enum grass_servers {
     GPID_UNUSED,
     GPID_PROCESS,
