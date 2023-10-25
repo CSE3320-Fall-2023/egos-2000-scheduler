@@ -5,11 +5,11 @@ For this assignment you will be making modifications to the egos-2000 operating 
 ## Requirements
 
 ### Lottery Scheduler
-Kernel processes will continue to be scheduled as they are now.  
+Kernel processes GPID_PROC, GPID_FILE and GPID_DIR will continue to be scheduled as they are now.  
 
-The PROC_SHELL process (PID 4) and all user processes will be scheduled via a lottery scheduler.  
+The GPID_SHELL process (PID 4) and all user processes will be scheduled via a lottery scheduler.  
 
-If none of the processes 1, 2, or 3 are runnable then the scheduler will utilize a lottery scheduling algorithm to pick the next process, PID 4+, to run.
+If none of the processes GPID_PROC, GPID_FILE and GPID_DIR are runnable then the scheduler will utilize a lottery scheduling algorithm to pick the next process, PID 4+, to run.
 
 Each process will be created with a single lottery ticket.  The scheduler will randomly select a lottery ticket.  The process holding that lottery ticket will be scheduled to run.
 
