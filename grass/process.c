@@ -12,6 +12,8 @@
 #include "syscall.h"
 #include <string.h>
 
+static int s_iSeed = 0;
+
 void intr_entry(int id);
 
 void excp_entry(int id) {
@@ -77,6 +79,23 @@ void proc_free(int pid) {
             earth->mmu_free(proc_set[i].pid);
             proc_set[i].status = PROC_UNUSED;
         }
+}
+
+// implemented from http://www.jstatsoft.org/v08/i14/paper
+// https://en.wikipedia.org/wiki/Xorshift
+void srand(unsigned int seed)
+{
+    s_iSeed = seed;
+}
+
+// implemented from http://www.jstatsoft.org/v08/i14/paper
+// https://en.wikipedia.org/wiki/Xorshift
+unsigned int rand()
+{
+    s_iSeed ^= s_iSeed << 13;
+    s_iSeed ^= s_iSeed >> 17;
+    s_iSeed ^= s_iSeed << 5;
+    return s_iSeed;
 }
 
 void proc_set_ready(int pid) { proc_set_status(pid, PROC_READY); }
